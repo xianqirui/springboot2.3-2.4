@@ -13,9 +13,9 @@ public class Start {
         ConfigurableApplicationContext run = SpringApplication.run(Start.class, args);
         //查看容器里面的组件
         String[] names = run.getBeanDefinitionNames();
-        for (String name : names) {
+        /*for (String name : names) {
             System.out.println(name);
-        }
+        }*/
         //获取组件
         User user01 = run.getBean("user01", User.class);
         User user02 = run.getBean("user01", User.class);

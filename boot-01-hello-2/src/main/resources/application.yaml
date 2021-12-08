@@ -1,0 +1,33 @@
+person:
+  userName: zhangsan
+  #userName: 'zhangsan \n 历史’,单引号会将\n作为字符串输出，双引号会作为换行输出
+  #双引号不会转义，单引号会转义
+  boss: true
+  birth: 2019/12/9
+  age: 18
+  #interests: [篮球，足球]
+  interests:
+    - 篮球
+    - 足球
+    - 18
+  animal: [阿毛，阿狗]
+#  score:
+#    english: 80
+#    math: 90
+  score: {english: 80,math: 90}
+  salarys:
+    - 9995
+    - 5555
+  pet:
+    name: 阿狗
+    weight: 999
+  allPets:
+    sick:
+      - {name: 阿狗,weight: 99.99}
+      - name: 阿毛
+        weight: 88.5
+      - name: 啊从
+        weight: 14.2
+    health:
+      - {name: 阿话,weight: 9149}
+      - {name: 阿名,weight: 9559}
