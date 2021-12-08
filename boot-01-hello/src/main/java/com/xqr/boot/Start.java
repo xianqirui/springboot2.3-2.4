@@ -20,5 +20,9 @@ public class Start {
         User user01 = run.getBean("user01", User.class);
         User user02 = run.getBean("user01", User.class);
         System.out.println("组件:"+(user01==user02));
+        //
+        boolean user011 = run.containsBean("user01");
+        System.out.println("user组件:"+user011);
+
     }
 }
