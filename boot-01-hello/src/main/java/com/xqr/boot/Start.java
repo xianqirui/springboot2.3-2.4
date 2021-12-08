@@ -1,5 +1,6 @@
 package com.xqr.boot;
 
+import com.xqr.boot.bean.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -15,6 +16,9 @@ public class Start {
         for (String name : names) {
             System.out.println(name);
         }
-        //
+        //获取组件
+        User user01 = run.getBean("user01", User.class);
+        User user02 = run.getBean("user01", User.class);
+        System.out.println("组件:"+(user01==user02));
     }
 }
