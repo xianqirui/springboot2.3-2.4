@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Welcome
+<br>
+====================
+<br>
+rest风格
+<form action="/user" method="get">
+    <input type="submit" value="GET请求" >
+</form>
+<br/>
+<form action="/user" method="post">
+    <input type="submit" value="POST请求" >
+</form>
+<br/>
+<form action="/user" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="DELETE请求" >
+</form>
+<br/>
+<form action="/user" method="post">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="submit" value="PUT请求" >
+</form>
+<p3>注解测试</p3>
+<br/>
+<ul><a href="/car/3/own/张三?age=18&inter=ball&inter=boot">/car/{id}/own/{muname}</a>
+    <li>@PathVariable(路径变量))/li>
+    <li>@RequestHeader（请求头）</li>
+    <li>@RequestParam(//获取参数)</li>
+    <li>@CookieValue(//Cook)</li>
+    <li>@RequestBody（请求体，post请求才有）</li>
+    <li>@MatrixVariable
+        1、语法： 请求路径：/cars/sell;low=34;brand=byd,audi,yd
+        //2、SpringBoot默认是禁用了矩阵变量的功能
+        //      手动开启：原理。对于路径的处理。UrlPathHelper进行解析。
+        //              removeSemicolonContent（移除分号内容）支持矩阵变量的
+        //3、矩阵变量必须有url路径变量才能被解析</li>
+</ul>
+</body>
+</html>

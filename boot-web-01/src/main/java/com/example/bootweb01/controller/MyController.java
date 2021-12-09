@@ -1,8 +1,6 @@
 package com.example.bootweb01.controller;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class MyController {
@@ -11,4 +9,32 @@ public class MyController {
     public String Hello(){
         return "hello";
     }
+    //rest风格
+
+    //@RequestMapping(value = "/user",method= RequestMethod.GET)
+    @GetMapping("/user")
+    public String getUser(){
+        return "GET-张三";
+    }
+
+    //@RequestMapping(value = "/user",method= RequestMethod.POST)
+    @PostMapping("/user")
+    public String postUser(){
+        return "POST-张三";
+    }
+
+    //@RequestMapping(value = "/user",method= RequestMethod.DELETE)
+    @DeleteMapping("/user")
+    public String delUser(){
+        return "DELETE-张三";
+    }
+
+    //@RequestMapping(value = "/user",method= RequestMethod.PUT)
+    @PutMapping("/user")
+    public String putUser(){
+        return "PUT-张三";
+    }
+
+
 }
+
