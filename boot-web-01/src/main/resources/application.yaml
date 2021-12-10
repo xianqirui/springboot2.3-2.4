@@ -4,9 +4,14 @@ spring:
     hiddenmethod:
       filter:
         enabled: true
+    #开启请求类容协商，带上format字段
+    #http://localhost:8080/test/person?format=json
+    contentnegotiation:
+      favor-parameter: true
 #  mvc:
     #静态资源前缀
 #    static-path-pattern: /res/**
 #  resources:
     #设置静态资源路径
+
 #    static-locations: classpath:/haha/
