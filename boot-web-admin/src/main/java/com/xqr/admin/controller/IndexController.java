@@ -7,13 +7,14 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
 public class IndexController {
     @GetMapping("/sss")
-    public String sss(){
+    public String sss( @RequestParam("a") int a){
         int i=10/0;
         return "login";
     }

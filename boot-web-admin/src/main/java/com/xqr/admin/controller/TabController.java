@@ -1,6 +1,7 @@
 package com.xqr.admin.controller;
 
 import com.xqr.admin.bean.User;
+import com.xqr.admin.exception.UserTooManyexception;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +27,10 @@ public class TabController {
                 new User("hah", "55555"),
                 new User("hehe", "66666"));
         model.addAttribute("users",users);
+
+        if(users.size()>3){
+            throw new UserTooManyexception();
+        }
         return "table/dynamic_table";
     }
 
