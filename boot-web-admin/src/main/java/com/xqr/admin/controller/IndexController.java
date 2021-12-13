@@ -12,6 +12,11 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class IndexController {
+    @GetMapping("/sss")
+    public String sss(){
+        int i=10/0;
+        return "login";
+    }
 
     //登录页
     @RequestMapping(value = {"/","/login"})
@@ -37,13 +42,14 @@ public class IndexController {
     //去mian页面
     @GetMapping("/main.html")
     public String mainPage(HttpSession session,Model model){
-        Object loginUser = session.getAttribute("loginUser");
+      /*  Object loginUser = session.getAttribute("loginUser");
         if(loginUser!=null){
             return "main";
         }else {
             model.addAttribute("mgs","没有登录");
             return "login";
-        }
+        }*/
+        return "main";
     }
 
     //退出登录
