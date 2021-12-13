@@ -1,18 +1,28 @@
 package com.xqr.admin.controller;
 
 import com.xqr.admin.bean.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
 public class IndexController {
+
+    @Autowired
+    JdbcTemplate jdbcTemplate;
+    //sql监控
+    @ResponseBody
+    @GetMapping("/sql")
+    public String sql(){
+        Long aLong = jdbcTemplate.queryForObject("select count(*) from user ", long.class);
+        return aLong.toString();
+    }
+
     @GetMapping("/sss")
     public String sss( @RequestParam("a") int a){
         int i=10/0;
