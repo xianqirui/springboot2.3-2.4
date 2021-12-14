@@ -4,21 +4,22 @@ spring:
     username: xqr
     password: x15282097256@
     driver-class-name: com.mysql.jdbc.Driver
-
+    #drui配置
     druid:
       aop-patterns: com.xqr.admin.*
-      filters: stat.,wall
+      filters: stat,wall,slf4j
 
       stat-view-servlet:
         enabled: true
         login-username: admin
         login-password: admin
         reset-enable: false
-
+      #web监控
       web-stat-filter:
         enabled: true
         url-pattern: /*
         exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+      #单独配置
       filter:
         stat:
           slow-sql-millis: 1000
@@ -27,5 +28,12 @@ spring:
         wall:
           enabled: true
 
+#配置规则
+#可以不写全局；配置文件，所有全局配置文件的配置都放在configuration配置项中即可
+mybatis:
+#  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
 
 

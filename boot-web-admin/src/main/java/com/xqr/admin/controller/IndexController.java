@@ -1,20 +1,50 @@
 package com.xqr.admin.controller;
 
+import com.xqr.admin.bean.City;
 import com.xqr.admin.bean.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.xqr.admin.bean.User01;
+import com.xqr.admin.service.impl.MyServiceImpl;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 @Controller
 public class IndexController {
 
-    @Autowired
+    @Resource
     JdbcTemplate jdbcTemplate;
+
+    @Resource
+    MyServiceImpl myService;
+    //mybatis测试
+    @ResponseBody
+    @GetMapping("/select")
+    public User01 selectbtid(@RequestParam("uid") Integer uid){
+        return myService.selectbyid(uid);
+    }
+    //纯注解
+    @GetMapping("/city")
+    @ResponseBody
+    public City getbyID(@RequestParam("id") int id){
+        return myService.getbyID(id);
+    }
+    //插入
+    @PostMapping("/city")
+    @ResponseBody
+    public City saveCity(City city){
+        myService.saveCity(city);
+        return city;
+    }
+    //去表单页
+    @RequestMapping("/form")
+    public String from(){
+        return "tablefrom";
+    }
     //sql监控
     @ResponseBody
     @GetMapping("/sql")

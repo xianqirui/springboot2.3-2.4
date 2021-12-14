@@ -10,8 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-@Order(value = Ordered.HIGHEST_PRECEDENCE)//最高优先级，数值越小优先级越高
-@Component
+//@Order(value = Ordered.HIGHEST_PRECEDENCE)//最高优先级，数值越小优先级越高
+//@Component
 public class CustomerHandlerException implements HandlerExceptionResolver {
 
     @Override
