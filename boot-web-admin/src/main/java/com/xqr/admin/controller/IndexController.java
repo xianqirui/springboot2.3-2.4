@@ -4,6 +4,10 @@ import com.xqr.admin.bean.City;
 import com.xqr.admin.bean.User;
 import com.xqr.admin.bean.User01;
 import com.xqr.admin.service.impl.MyServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +19,8 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class IndexController {
+    @Autowired
+    StringRedisTemplate redisTemplate;
 
     @Resource
     JdbcTemplate jdbcTemplate;
@@ -90,6 +96,11 @@ public class IndexController {
             model.addAttribute("mgs","没有登录");
             return "login";
         }*/
+        ValueOperations<String, String> operations = redisTemplate.opsForValue();
+        String s = operations.get("/main.html");
+        String s1 = operations.get("/sql");
+        model.addAttribute("maincount",s);
+        model.addAttribute("sqlcount",s1);
         return "main";
     }
 

@@ -27,7 +27,11 @@ spring:
           enabled: true
         wall:
           enabled: true
-
+  redis:
+    host: 1.117.217.16
+    port: 6379
+    password: x744713157
+    client-type: jedis
 #配置规则
 #可以不写全局；配置文件，所有全局配置文件的配置都放在configuration配置项中即可
 mybatis:

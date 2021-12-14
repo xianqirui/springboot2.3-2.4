@@ -94,11 +94,11 @@
                                     <div class="span6">
                                         <div class="dataTables_paginate paging_bootstrap pagination">
                                             <ul>
-                                                <li class="prev disabled"><a href="#">← Previous</a></li>
+                                                <li ><a th:href="@{/dynamic_table(pn=${userPage.current}-1)}">← Previous</a></li>
                                                 <li th:class="${num==userPage.current?'active':''}" th:each="num:${#numbers.sequence(1,userPage.pages)}">
                                                     <a th:href="@{/dynamic_table(pn=${num})}">[[${num}]]</a>
                                                 </li>
-                                                <li class="next disabled"><a th:href="">Next → </a></li>
+                                                <li ><a th:href="@{/dynamic_table(pn=${userPage.current}+1)}">Next → </a></li>
                                             </ul>
                                         </div>
                                     </div>
