@@ -76,7 +76,9 @@
                                         <td th:text="${user.name}"></td>
                                         <td th:text="${user.age}">Win 95+</td>
                                         <td class="center hidden-phone">[[${user.email}]]</td>
-                                        <td class="center hidden-phone">X</td>
+                                        <td>
+                                            <a th:href="@{/user/delect/{id}(id=${user.id},pn=${userPage.current})}" class="btn btn-danger btn-sm" type="button">Small button</a>
+                                        </td>
                                     </tr>
 
                                     </tbody>
@@ -96,7 +98,7 @@
                                                 <li th:class="${num==userPage.current?'active':''}" th:each="num:${#numbers.sequence(1,userPage.pages)}">
                                                     <a th:href="@{/dynamic_table(pn=${num})}">[[${num}]]</a>
                                                 </li>
-                                                <li class="next disabled"><a href="#">Next → </a></li>
+                                                <li class="next disabled"><a th:href="">Next → </a></li>
                                             </ul>
                                         </div>
                                     </div>
