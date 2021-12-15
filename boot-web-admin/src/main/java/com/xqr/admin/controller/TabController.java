@@ -58,7 +58,9 @@ public class TabController {
         long current = userPage.getCurrent();
         long pages = userPage.getPages();
         long total = userPage.getTotal();
+        //获取用户信息
         List<User> records = userPage.getRecords();
+
         model.addAttribute("userPage",userPage);
         return "table/dynamic_table";
     }

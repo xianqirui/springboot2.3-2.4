@@ -18,6 +18,7 @@ public class RedisUrlCount implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String uri = request.getRequestURI();
+        //记录访问
         redisTemplate.opsForValue().increment(uri);
 
         return true;
