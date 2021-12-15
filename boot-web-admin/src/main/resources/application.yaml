@@ -32,6 +32,14 @@ spring:
     port: 6379
     password: x744713157
     client-type: jedis
+  boot:
+    admin:
+      client:
+        url: http://localhost:8888
+        instance:
+          prefer-ip: true
+  application:
+    name: boot-web-admin
 #配置规则
 #可以不写全局；配置文件，所有全局配置文件的配置都放在configuration配置项中即可
 mybatis:
@@ -39,5 +47,24 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
-
-
+#监控配置
+management:
+  endpoints:
+    enabled-by-default: true #默认开启所监控断点
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+      enabled: true
+    info:
+      enabled: true
+    beans:
+      enabled: true
+    metrics:
+      enabled: true
+info:
+  appName: boot-admin
+  version: 1.1
+  mavenProjectName: @project.artifactId@
